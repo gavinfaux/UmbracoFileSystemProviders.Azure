@@ -59,6 +59,16 @@ namespace Our.Umbraco.FileSystemProviders.Azure
             /// The configuration key for providing the Use Private Container value via the web.config
             /// </summary>
             public const string UsePrivateContainer = "AzureBlobFileSystem.UsePrivateContainer";
+
+            /// <summary>
+            /// The configuration key for providing the Azure Blob Container Name for Umbraco Forms uploads via the web.config
+            /// </summary>
+            public const string ContainerNameKeyForUmbracoFormsUploads = "AzureBlobFileSystem.ContainerNameForUmbracoFormsUploads";
+
+            /// <summary>
+            /// The configuration key for providing the Use Private Container value for Umbraco Forms uploads via the web.config
+            /// </summary>
+            public const string UsePrivateContainerForUmbracoFormsUploads = "AzureBlobFileSystem.UsePrivateContainerForUmbracoFormsUploads";
         }
     }
 }

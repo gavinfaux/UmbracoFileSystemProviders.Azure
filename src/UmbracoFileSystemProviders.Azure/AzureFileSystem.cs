@@ -640,6 +640,17 @@ namespace Our.Umbraco.FileSystemProviders.Azure
                     return null;
                 }
 
+                // If the path is for an Umbraco forms upload, just return an empty result.
+                // We don't want them downloaded via this provider because it's unauthenticated
+                // (or authenticated against Members), and forms uploads need to check that the
+                // current back office user has permission to the form. Sites will need to
+                // implement a separate secure way to download forms uploads.
+                // This is part of a workaround for http://issues.umbraco.org/issue/CON-1454
+                if (this.IsUmbracoFormsUpload(path))
+                {
+                    return null;
+                }
+
                 MemoryStream stream = new MemoryStream();
                 blockBlob.DownloadToStream(stream);
 
@@ -652,6 +663,18 @@ namespace Our.Umbraco.FileSystemProviders.Azure
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Determines whether a file path represents an Umbraco Forms upload.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns>
+        ///   <c>true</c> if it is an Umbraco Forms upload; otherwise, <c>false</c>.
+        /// </returns>
+        public bool IsUmbracoFormsUpload(string path)
+        {
+            return !string.IsNullOrEmpty(path) && this.FixPath(path).StartsWith("forms/upload/");
         }
 
         /// <summary>
