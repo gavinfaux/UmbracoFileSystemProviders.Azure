@@ -29,7 +29,7 @@ SET VSWherePath="%InstallDir%\MSBuild"
 ECHO.
 ECHO Visual Studio is installed in: %InstallDir%
 
-CALL "%InstallDir%\MSBuild\15.0\Bin\amd64\MsBuild.exe" package.proj %~1
+CALL "%InstallDir%\MSBuild\Current\Bin\amd64\MsBuild.exe" package.proj %~1
 
 @IF %ERRORLEVEL% NEQ 0 GOTO err
 @EXIT /B 0

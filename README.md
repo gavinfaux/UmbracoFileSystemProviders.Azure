@@ -1,3 +1,7 @@
+# umbraco-forms branch
+
+nuget push example `D:\Work\src\UmbracoFileSystemProviders.Azure\src>nuget.exe push -Source "UmbracoProjects" -ApiKey az ..\artifacts\UmbracoFileSystemProviders.Azure.1.1.1-forms-beta-000111.nupkg -ConfigFile .nuget\nuget.config`
+
 # UmbracoFileSystemProviders.Azure v1
 
 **This version is for Umbraco v7 only**. For the v2 package for **Umbraco v8** please visit the [develop-umbraco-version-8 branch](https://github.com/JimBobSquarePants/UmbracoFileSystemProviders.Azure/tree/develop-umbraco-version-8)
